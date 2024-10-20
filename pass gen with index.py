@@ -90,21 +90,19 @@ while True:
             num += 1
 
         # Write the DataFrame to Excel
-        df.to_excel(name, index=False)  # There will be no indexing
+        df.to_excel(name)
 
         # Re-open the file with xlsxwriter engine to adjust column width
         with pd.ExcelWriter(name, engine="xlsxwriter") as writer:
-            df.to_excel(writer, index=False)
+            df.to_excel(writer)
 
             # Access the workbook and worksheet objects
             workbook = writer.book
             worksheet = writer.sheets["Sheet1"]
 
             # Set the width of a specific column
-            worksheet.set_column(
-                "A:A", 15
-            )  # Adjust the width of the 'Passwords' column
-
+            worksheet.set_column("A:A", 5)  # Adjust the width of the 'Passwords' column
+            worksheet.set_column("B:B", 15)
         print(f"Your passwords are saved to: {name}")
 
     except EOFError:
