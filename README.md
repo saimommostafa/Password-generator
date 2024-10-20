@@ -1,2 +1,2 @@
 # Password-generator
-Generates multiple passwords according to user's preference
+Users can generate as many passwords they need.
